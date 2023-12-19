@@ -2,9 +2,9 @@ package com.example.jpls1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import com.example.jpls1.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,19 +12,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Find the "Shop Now" button
         val shopNowButton = findViewById<Button>(R.id.button2)
 
-        // Set a click listener for the button
         shopNowButton.setOnClickListener {
+
+            shopNowButton.visibility = View.GONE
             // Create an instance of your HomepageFragment
             val homePageFragment = Homepage()
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_container, homePageFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
 
+            // Begin the fragment transaction
+            val transaction = supportFragmentManager.beginTransaction()
+
+            // Replace the fragment_container with the new fragment
+            transaction.replace(R.id.fragment_container, homePageFragment)
+
+            // Add the transaction to the back stack (optional)
+            transaction.addToBackStack(null)
+
+            // Commit the transaction
+            transaction.commit()
         }
     }
 }
+
 
