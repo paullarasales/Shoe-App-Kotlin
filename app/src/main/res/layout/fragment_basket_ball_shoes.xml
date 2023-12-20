@@ -1,0 +1,147 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".BasketBallShoes">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="190dp"
+            android:layout_height="170dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/rounded_image_background"
+            android:scaleType="centerCrop"
+            android:src="@drawable/nikegiannisimmortality2" />
+
+        <TextView
+            android:id="@+id/textViewShoeName1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins"
+            android:layout_toEndOf="@id/imageView5"
+            android:layout_alignTop="@id/imageView5"
+            android:text="Nike Giannis Immortality 2"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/textViewShoePrice1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/poppins"
+            android:layout_toEndOf="@id/imageView5"
+            android:layout_alignTop="@id/imageView5"
+            android:text="₱5,379"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="View Details"
+            android:layout_below="@id/textViewShoePrice1"
+            android:layout_alignStart="@id/textViewShoePrice1"
+            android:layout_marginTop="16dp"/>
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="190dp"
+            android:layout_height="150dp"
+            android:background="@drawable/rounded_image_background"
+            android:scaleType="centerCrop"
+            android:src="@drawable/nikekyrie"
+            android:layout_below="@id/imageView5"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/textViewShoeName2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins"
+            android:layout_toEndOf="@id/imageView6"
+            android:layout_alignTop="@id/imageView6"
+            android:text="Nike Kyrie"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewShoePrice2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/poppins"
+            android:layout_toEndOf="@id/imageView6"
+            android:layout_alignTop="@id/imageView6"
+            android:text="₱21,132"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="View Details"
+            android:layout_below="@id/textViewShoePrice2"
+            android:layout_alignStart="@id/textViewShoePrice2"
+            android:layout_marginTop="16dp"/>
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="190dp"
+            android:layout_height="150dp"
+            android:background="@drawable/rounded_image_background"
+            android:scaleType="centerCrop"
+            android:src="@drawable/nikelebron"
+            android:layout_below="@id/imageView6"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/textViewShoeName3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins"
+            android:layout_toEndOf="@id/imageView7"
+            android:layout_alignTop="@id/imageView7"
+            android:text="Nike LeBron"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewShoePrice3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/poppins"
+            android:layout_toEndOf="@id/imageView7"
+            android:layout_alignTop="@id/imageView7"
+            android:text="₱8,369"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="View Details"
+            android:layout_below="@id/textViewShoePrice3"
+            android:layout_alignStart="@id/textViewShoePrice3"
+            android:layout_marginTop="16dp"/>
+
+    </RelativeLayout>
+</ScrollView>

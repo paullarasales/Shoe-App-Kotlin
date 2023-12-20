@@ -5,56 +5,75 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [homepage.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Homepage : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the correct layout for this fragment
-        return inflater.inflate(R.layout.fragment_homepage, container, false)
+        val view = inflater.inflate(R.layout.fragment_homepage, container, false)
+
+        // Initial selection (All Items)
+        replaceFragment(AllItems())
+        setSectionSelected(view.findViewById(R.id.textView5)) // Set the initial selection
+
+        // Handle the category clicks
+        val allTextView: TextView = view.findViewById(R.id.textView5)
+        val basketballShoesTextView: TextView = view.findViewById(R.id.textView6)
+        val socksTextView: TextView = view.findViewById(R.id.textView7)
+
+        allTextView.setOnClickListener {
+            // Display the AllFragment
+            replaceFragment(AllItems())
+            setSectionSelected(allTextView)
+        }
+
+        basketballShoesTextView.setOnClickListener {
+            // Display the BasketballShoesFragment
+            replaceFragment(BasketBallShoes())
+            setSectionSelected(basketballShoesTextView)
+        }
+
+        socksTextView.setOnClickListener {
+            // Display the SocksFragment
+            replaceFragment(Socks())
+            setSectionSelected(socksTextView)
+        }
+
+        return view
     }
 
+    private fun replaceFragment(fragment: Fragment) {
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.homepage_fragment_container, fragment)
+            ?.commit()
+    }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment homepage.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Homepage().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun setSectionSelected(textView: TextView) {
+        // Reset color for all text views
+        val allTextView: TextView = view?.findViewById(R.id.textView5) ?: return
+        val basketballShoesTextView: TextView = view?.findViewById(R.id.textView6) ?: return
+        val socksTextView: TextView = view?.findViewById(R.id.textView7) ?: return
+
+        allTextView.setTextColor(getTextColor(allTextView, false))
+        basketballShoesTextView.setTextColor(getTextColor(basketballShoesTextView, false))
+        socksTextView.setTextColor(getTextColor(socksTextView, false))
+
+        // Set the selected text color for the clicked text view
+        textView.setTextColor(getTextColor(textView, true))
+    }
+
+    private fun getTextColor(textView: TextView, isSelected: Boolean): Int {
+        // Define your color values here
+        val activeColor = ContextCompat.getColor(requireContext(), R.color.defaultTextColor)
+        val inactiveColor = ContextCompat.getColor(requireContext(), R.color.inactiveTextColor)
+
+        // Return the appropriate color
+        return if (isSelected) activeColor else inactiveColor
     }
 }
